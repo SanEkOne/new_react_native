@@ -1,19 +1,19 @@
-import { Tabs } from 'expo-router';
+import { View, Text } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Stack } from "expo-router";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function Layout() {
-  return (
-    <Tabs>
-      <Tabs.Screen name='index'
-        options={{
-          title: 'Главная',
-        }}
-      />
-      <Tabs.Screen
-        name="homework"
-        options={{
-          title: 'Домашнее задание',
-        }}
-      />
-    </Tabs>
-  );
+const RootLayout = ()=>{
+    return(
+            // <SafeAreaView>
+            //     <Text>Welcome to React Native</Text>
+            // </SafeAreaView>
+            <SafeAreaProvider>
+                <Stack>
+                    <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
+                </Stack>
+            </SafeAreaProvider>
+    )
 }
+
+export default RootLayout;
