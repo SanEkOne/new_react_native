@@ -5,9 +5,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const RootLayout = ()=>{
     return(
-            // <SafeAreaView>
-            //     <Text>Welcome to React Native</Text>
-            // </SafeAreaView>
             <SafeAreaProvider>
                 <Stack>
                     <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
