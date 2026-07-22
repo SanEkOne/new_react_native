@@ -81,6 +81,13 @@ const TabLayout = () => {
                             drawerIcon: ({ color, size }) => <MaterialCommunityIcons name="animation" size={size} color={color} />
                         }}
                     />
+                    <Drawer.Screen
+                        name="dimension"
+                        options={{
+                            drawerLabel: 'Dimension',
+                            drawerIcon: ({ color, size }) => <MaterialCommunityIcons name="animation" size={size} color={color} />
+                        }}
+                    />
                 </Drawer>
             </GestureHandlerRootView>
         </SafeAreaProvider>
