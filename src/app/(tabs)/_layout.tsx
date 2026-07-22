@@ -10,13 +10,13 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 const DrawerContent = (props: DrawerContentComponentProps) => {
     return (
 
-        <View style={{ flex: 1, marginTop: 60, marginBottom: 60, padding: 5 }}>
+        <View style={{ flex: 1, marginTop: 60, marginBottom: 10, padding: 5 }}>
             <DrawerContentScrollView {...props} contentContainerStyle={{ paddingTop: 0 }}>
                 <DrawerItemList{...props} />
             </DrawerContentScrollView>
-            <Text>React Native Lessons</Text>
+            <Text>React Native</Text>
             <Text>2026</Text>
-            <Text></Text>
+            <Text>1.0.0</Text>
         </View>
     )
 }
