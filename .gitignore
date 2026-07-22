@@ -41,3 +41,9 @@ example
 # generated native folders
 /ios
 /android
+
+# Media files
+*.mp4
+*.mp3
+*.wav
+*.mov
