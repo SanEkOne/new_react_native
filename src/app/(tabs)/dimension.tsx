@@ -11,51 +11,47 @@ interface Size {
     height: number
 }
 
-interface Product {
+interface Video {
     id: number,
     title: string,
     description?: string,
-    imageUrl: string,
-    price: number
+    videoUrl: string,
+    channel: string
 }
 
 
 const DimensionScreen = () => {
 
-    const images = [
+    const videos = [
         require('../../../assets/images/icon.png'),
-        require('../../../assets/images/icon.png'),
-        require('../../../assets/images/icon.png'),
-        require('../../../assets/images/icon.png'),
+        require('../../../assets/images/react-logo.png'),
+        require('../../../assets/images/tutorial-web.png'),
+        require('../../../assets/images/expo-badge-white.png'),
     ];
-    const products: Product[] = [
+    const content: Video[] = [
         {
             id: 1,
-            title: 'Smartphone',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt quasi sunt amet est voluptatem laborum culpa neque ab dicta eveniet labore minima deleniti, obcaecati tempora, quae recusandae delectus vel exercitationem.',
-            imageUrl: images[0],
-            price: 1200.00
+            title: 'First video',
+            videoUrl: "video1",
+            channel: "First - channel"
         },
         {
             id: 2,
-            title: 'Laptop',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt quasi sunt amet est voluptatem laborum culpa neque ab dicta eveniet labore minima deleniti, obcaecati tempora, quae recusandae delectus vel exercitationem.',
-            imageUrl: images[1],
-            price: 2100.00
+            title: 'Second video',
+            videoUrl: "video1",
+            channel: "Second - channel"
         },
         {
             id: 3,
-            title: 'Earphones',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt quasi sunt amet est voluptatem laborum culpa neque ab dicta eveniet labore minima deleniti, obcaecati tempora, quae recusandae delectus vel exercitationem.',
-            imageUrl: images[2],
-            price: 100.00
+            title: 'Third video',
+            videoUrl: "video1",
+            channel: "Third - channel"
         },
         {
             id: 4,
-            title: 'Powerbank',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt quasi sunt amet est voluptatem laborum culpa neque ab dicta eveniet labore minima deleniti, obcaecati tempora, quae recusandae delectus vel exercitationem.',
-            imageUrl: images[3],
-            price: 500.00
+            title: 'Fourth video',
+            videoUrl: "video1",
+            channel: "Fourth - channel"
         },
     ];
 
@@ -72,25 +68,9 @@ const DimensionScreen = () => {
     const isWide = dimension.width > dimension.height;
 
     const styles = StyleSheet.create({
-        // card:{
-        //     backgroundColor:"#438a43",
-        //     width: isWide ? 50: 150,
-        //     height: isWide ? 50: 150,
-        //     margin: 10,
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     borderRadius: 10
-        // },
-        //cardText: {
-        //     color: 'white',
-        //     fontSize: isWide ? 24 : 60
-        // },
         cardImageBox: {
-            width: '90%',
+            width: '100%',
             height: 150,
-            // borderColor: '#a03064',
-            // borderWidth: 3,
-            // borderRadius: 4
         },
         productImage: {
             width: '100%',
@@ -98,41 +78,21 @@ const DimensionScreen = () => {
             objectFit: 'contain'
         },
         card: {
-            borderLeftColor: '#a03064',
-            borderLeftWidth: 3,
-            borderTopColor: '#a03064',
-            borderTopWidth: 3,
+            borderColor: 'black',
+            borderWidth: 2,
             padding: 5,
             borderRadius: 4,
-            alignItems: 'center',
         },
         cardTitle: {
             fontSize: 20,
-            textTransform: 'uppercase',
-
         },
-        cardDescription: {
-            fontSize: 16,
-        },
-        cardPrice: {
-            color: 'darkgreen',
+        cardChannel: {
+            color: 'gray',
             fontSize: 20,
             fontWeight: 'bold',
 
         },
-        buttonBase: {
-            padding: 10,
-            borderRadius: 8,
-            backgroundColor: '#a03064',
-            marginVertical: 5
-        },
-        buttonText: {
-            textAlign: 'center',
-            fontSize: 16,
-            color: 'white',
-            textTransform: "uppercase",
-            fontWeight: 'bold'
-        },
+
     })
     useEffect(() => {
         const onWindowChange = ({ window, screen }: {
@@ -149,68 +109,36 @@ const DimensionScreen = () => {
         }
     }, []);
 
-    const cards = ['A', 'B', 'C', 'D'];
 
     return (
         <SafeAreaView>
             <ScrollView>
-                {/* <Text>Width: {windowSize.width}{`\nHeight: ${windowSize.height}`}</Text>
-            <Text>Width: {screenSize.width}{`\nHeight: ${screenSize.height}`}</Text> */}
-
-                <Container>
-                    <Text>Width: {dimension.width}{`\nHeight: ${dimension.height}`}</Text>
-                </Container>
-
-                {/* <Container style={{
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: isWide?'flex-start': 'center'
-            }}>
-                {cards.map((item, index)=>(
-                    <View key={index} style={styles.card}>
-                        <Text style={styles.cardText}>{item}</Text>
-                    </View>
-                ))}
-            </Container> */}
                 <Container style={{
                     gap: 5
                 }}>
-                    {products.map((item, index) => (
+                    {content.map((item, index) => (
                         <View key={index} style={styles.card}>
-                            <View style={styles.cardImageBox}>
-                                <Image style={styles.productImage} source={images[index]} />
-                            </View>
-                            <Text style={styles.cardTitle}>{item.title}</Text>
-                            <Text style={styles.cardDescription}>{item.description}</Text>
-                            <Text style={styles.cardPrice}>${item.price}</Text>
-                            <TouchableOpacity style={[styles.buttonBase, { alignSelf: 'flex-end' }]}>
-                                <Text style={styles.buttonText} onPress={() => {
-                                    console.log("Image url: ", images[index])
-                                    router.push({
-                                        pathname: '/product_modal',
-                                        params: {
-                                            id: item.id.toString(),
-                                            title: item.title,
-                                            description: item.description,
-                                            price: item.price.toString(),
-                                            imageUrl: images[index].toString()
-                                        }
-                                    })
-                                }}>View product</Text>
+
+                            <TouchableOpacity onPress={() => {
+                                console.log("Image url: ", videos[index])
+                                router.push({
+                                    pathname: '/video_modal',
+                                    params: {
+                                        id: item.id.toString(),
+                                        title: item.title,
+                                        channel: item.channel.toString(),
+                                        videoUrl: item.videoUrl
+                                    }
+                                })
+                            }}>
+                                <View style={styles.cardImageBox}>
+                                    <Image style={styles.productImage} source={videos[index]} />
+                                </View>
+                                <Text style={styles.cardTitle}>{item.title}</Text>
+                                <Text style={styles.cardChannel}>{item.channel}</Text>
                             </TouchableOpacity>
                         </View>
                     ))}
-                </Container>
-                <Container>
-                    <TouchableOpacity style={styles.buttonBase}
-                        onPress={() => {
-                            router.push({
-                                pathname: '/'
-                            })
-                        }}
-                    >
-                        <Text style={styles.buttonText}>Main Screen</Text>
-                    </TouchableOpacity>
                 </Container>
             </ScrollView>
         </SafeAreaView>
