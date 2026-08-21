@@ -102,6 +102,34 @@ const TabLayout = () => {
                             drawerIcon: ({ color, size }) => <Entypo name="list" size={size} color={color} />
                         }}
                     />
+                    <Drawer.Screen
+                        name="storage"
+                        options={{
+                            drawerLabel: 'Storage',
+                            drawerIcon: ({ color, size }) => <Entypo name="list" size={size} color={color} />
+                        }}
+                    />
+                    <Drawer.Screen
+                        name="rest"
+                        options={{
+                            drawerLabel: 'Rest',
+                            drawerIcon: ({ color, size }) => <Entypo name="list" size={size} color={color} />
+                        }}
+                    />
+                    <Drawer.Screen
+                        name="avatar"
+                        options={{
+                            drawerLabel: 'Avatar',
+                            drawerIcon: ({ color, size }) => <Entypo name="list" size={size} color={color} />
+                        }}
+                    />
+                    <Drawer.Screen
+                        name="database"
+                        options={{
+                            drawerLabel: 'Database',
+                            drawerIcon: ({ color, size }) => <Entypo name="list" size={size} color={color} />
+                        }}
+                    />
                 </Drawer>
             </GestureHandlerRootView>
         </SafeAreaProvider>

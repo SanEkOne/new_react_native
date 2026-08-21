@@ -1,4 +1,4 @@
-  {
+{
   "expo": {
     "name": "pv411_412_react_native",
     "slug": "pv411_412_react_native",
@@ -24,7 +24,6 @@
       },
       "predictiveBackGestureEnabled": false
     },
-    
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png"
@@ -50,7 +49,8 @@
           "cameraPermission": "Разрешите доступ к камере для использования фонарика и съемки.",
           "microphonePermission": "Разрешите доступ к микрофону для записи видео."
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true,
